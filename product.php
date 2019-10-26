@@ -15,21 +15,19 @@
 
 <section>
 
-    <div class="catalog">
-        <?php foreach ($catalog as $product): ?>
-            <div class="product" data-productarticle="<?= $product['article'] ?>">
-                <?php $img = "/img/" . $product['article'] . ".png"; ?>
+    <button><a class="btn-add-basket" href="/index.php">Вернуться</a></button>
+
+
+            <div class="product" data-productarticle="1">
+                <?php $img = "/img/1.png"; ?>
                 <div><img src="<?= $img ?>"></div>
                 <div class="name">
-                    <a href="/product.php"><?= $product['name'] ?> <br><?= $product['model'] ?></a>
+                    <a href="/product.php">gfgf <br>hjhjh</a>
                 </div>
-                <div class="material"><?= $product['material'] ?></div>
-                <div class="price"><span><?= $product['price'] ?></span>грн</div>
+                <div class="material">vfvfvfv</div>
+                <div class="price"><span>17171717</span>грн</div>
                 <button><a class="btn-add-basket" href="#">В корзину</a></button>
             </div>
-        <?php endforeach; ?>
-
-    </div>
 </section>
 
 <?php require_once "./footer.php"; ?>

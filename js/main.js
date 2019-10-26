@@ -25,11 +25,15 @@ function events() {
     document.querySelector("div.catalog").addEventListener(
         "click",
         function (e) {
-            e.preventDefault(); // эта функция прекращает обработку события.
             let button = e.target; //обытие. таргет - дом елем на который нажали
             if (button.tagName !== "A" && button.tagName !== "BUTTON") {
                 return;
             }
+            if( !(button.tagName === "A" && button.classList.contains("btn-add-basket")) ){
+                return;
+            }
+            e.preventDefault();
+
 
             let productDomElement = button.closest("div.product");
             let productObj = makeProductObj(productDomElement);
