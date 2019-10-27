@@ -26,7 +26,9 @@
                 </div>
                 <div class="material"><?= $product['material'] ?></div>
                 <div class="price"><span><?= $product['price'] ?></span> грн</div>
-                <button><a class="btn-add-basket" href="#">В корзину</a></button>
+                <button class="btn-add-basket">
+                    <a class="btn-add-basket" href="#">В корзину</a>
+                </button>
             </div>
         <?php endforeach; ?>
 

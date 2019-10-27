@@ -12,7 +12,7 @@
 <?php require_once "./catalog.php"; ?>
 
 <section>
-    <button><a class="btn-add-basket" href="/index.php">Вернуться</a></button>
+    <button><a href="/index.php">Вернуться</a></button>
     <div class="catalog">
 
         <?php
