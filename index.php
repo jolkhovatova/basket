@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<?php require_once "./header.php"?>
+<?php require_once "./header.php" ?>
 
 <div class="empty-space"></div>
 
@@ -21,10 +21,11 @@
                 <?php $img = "/img/" . $product['article'] . ".png"; ?>
                 <div><img src="<?= $img ?>"></div>
                 <div class="name">
-                    <a href="/product.php"><?= $product['name'] ?> <br><?= $product['model'] ?></a>
+                    <a href="/product.php?article=<?= $product['article'] ?>"><?= $product['name'] ?>
+                        <br><?= $product['model'] ?></a>
                 </div>
                 <div class="material"><?= $product['material'] ?></div>
-                <div class="price"><span><?= $product['price'] ?></span>грн</div>
+                <div class="price"><span><?= $product['price'] ?></span> грн</div>
                 <button><a class="btn-add-basket" href="#">В корзину</a></button>
             </div>
         <?php endforeach; ?>

@@ -44,3 +44,13 @@ $catalog = [
     ],
 
 ];
+
+
+function getProductByArticle($article){
+    global $catalog;
+    foreach($catalog as $product){
+        if ($product['article'] === $article){
+            return $product;
+        }
+    }
+};
