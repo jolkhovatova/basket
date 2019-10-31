@@ -11,18 +11,30 @@
         </div>
     </div>
 
-    <div class="logo">
-        <img src="img/Cartier_logo_mobile.png" alt="">
+    <div class="row text-center justify-content-center">
+        <div class="col-12">
+            <img src="img/Cartier_logo_mobile.png" alt="" class="rounded-pill shadow p-3 mb-5 bg-white rounded">
+        </div>
     </div>
-    <div class="menu">
+    <div class="p-3 mb-2 bg-dark text-white">
         <nav>
-            <div class="brd">
-                <ul>
-                    <li class="active">Браслеты</li>
-                    <li>Кольца</li>
-                    <li>Серги</li>
-                    <li>Колье</li>
-                    <li>Часы</li>
+            <div>
+                <ul class="nav nav-tabs justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Браслеты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Кольца</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Серги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Колье</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Часы</a>
+                    </li>
                 </ul>
             </div>
         </nav>
