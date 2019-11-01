@@ -12,6 +12,9 @@
 <body>
 
 <?php
+
+require_once './models/Product.php';
+
 $host = 'dockerlamp_mariadb_1'; // адрес сервера
 $database = 'cartier'; // имя базы данных
 $user = 'root'; // имя пользователя
@@ -19,12 +22,20 @@ $password = 'rootpwd'; // пароль
 
 $link = mysqli_connect($host, $user, $password, $database)
 or die("Ошибка " . mysqli_error($link));
+mysqli_query($link,'SET NAMES utf8');
 
 $query ="SELECT * FROM products";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 if($result)
 {
-    $catalog = $result->fetch_all(MYSQLI_ASSOC);
+    //$catalog = $result->fetch_all(MYSQLI_ASSOC);
+    $catalog = [];
+
+    while($fields = $result->fetch_assoc()){
+        $objProduct = new Product($fields);
+        $catalog[] = $objProduct;
+    }
+
 }
 
 ?>
@@ -39,19 +50,19 @@ if($result)
     <div class="container">
         <div class="row">
 
-            <?php foreach ($catalog as $product):?>
+            <?php foreach ($catalog as $objProduct):?>
             <div class="col-xs-12 col-sm-6 col-lg-4 mb-3 mt-3">
 
-                <div class="text-center" data-productarticle="<?= $product['article'] ?>">
-                    <?php $img = "/img/" . $product['article'] . ".png"; ?>
+                <div class="text-center" data-productarticle="<?= $objProduct->getArticle() ?>">
+                    <?php $img = "/img/" . $objProduct->getArticle() . ".png"; ?>
                     <div><img src="<?= $img ?>"></div>
                     <div class="text-dark">
-                        <a href="/product.php?article=<?= $product['article'] ?>"
-                           class="text-dark"><?= $product['name'] ?>
-                            <br><?= $product['model'] ?></a>
+                        <a href="/product.php?article=<?= $objProduct->getArticle() ?>"
+                           class="text-dark"><?= $objProduct->getName() ?>
+                            <br><?= $objProduct->getModel() ?></a>
                     </div>
-                    <div class="text-secondary"><?= $product['material'] ?></div>
-                    <div class="price"><span><?= $product['price'] ?></span> грн</div>
+                    <div class="text-secondary"><?= $objProduct->getMaterial() ?></div>
+                    <div class="price"><span><?= $objProduct->getPrice() ?></span> грн</div>
                     <button class="btn-add-basket btn btn-secondary">
                         <a class="btn-add-basket text-white" href="#">В корзину</a>
                     </button>
