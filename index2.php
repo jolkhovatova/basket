@@ -11,11 +11,29 @@
 </head>
 <body>
 
+<?php
+$host = 'dockerlamp_mariadb_1'; // адрес сервера
+$database = 'cartier'; // имя базы данных
+$user = 'root'; // имя пользователя
+$password = 'rootpwd'; // пароль
+
+$link = mysqli_connect($host, $user, $password, $database)
+or die("Ошибка " . mysqli_error($link));
+
+$query ="SELECT * FROM products";
+$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+if($result)
+{
+    $catalog = $result->fetch_all(MYSQLI_ASSOC);
+}
+
+?>
+
 <?php require_once "./header.php" ?>
 
 <div class="empty-space"></div>
 
-<?php require_once "./catalog.php"; ?>
+<?//php require_once "./catalog.php"; ?>
 
 <section>
     <div class="container">

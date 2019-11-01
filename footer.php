@@ -31,8 +31,6 @@
 <script src="bootstrap/js/bootstrap.js"></script>
 <!-- <script src="bootstrap/js/bootstrap.bundle.js"></script> -->
 
-<!--
 <script src="js/basket.js"></script>
 <script src="js/page.js"></script>
 <script src="js/main.js"></script>
--->
