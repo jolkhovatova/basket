@@ -1,3 +1,6 @@
+
+<?php require_once "./link-db.php"?>
+
 <section class="head">
     <div class="basket">
         <div class="basket-img">

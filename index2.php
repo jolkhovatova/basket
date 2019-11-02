@@ -15,17 +15,10 @@
 
 require_once './models/Product.php';
 
-$host = 'dockerlamp_mariadb_1'; // адрес сервера
-$database = 'cartier'; // имя базы данных
-$user = 'root'; // имя пользователя
-$password = 'rootpwd'; // пароль
-
-$link = mysqli_connect($host, $user, $password, $database)
-or die("Ошибка " . mysqli_error($link));
-mysqli_query($link,'SET NAMES utf8');
+require_once "./header.php";
 
 $query ="SELECT * FROM products";
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+$result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
 if($result)
 {
     //$catalog = $result->fetch_all(MYSQLI_ASSOC);
@@ -39,8 +32,6 @@ if($result)
 }
 
 ?>
-
-<?php require_once "./header.php" ?>
 
 <div class="empty-space"></div>
 
