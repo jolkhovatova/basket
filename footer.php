@@ -34,8 +34,9 @@
 <!--
 <script src="js/basket.js"></script>
 <script src="js/page.js"></script>
-<script src="js/main.js"></script>
 -->
+<script src="js/main.js"></script>
+
 
 </body>
 </html>

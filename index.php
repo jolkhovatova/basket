@@ -4,7 +4,7 @@
 <?php require_once "./menu-catalog.php"; ?>
 
 <?php
-$pageSize = 6;
+$pageSize = intval($_GET['size'] ?? 6);
 $groupsId = intval($_GET['groups'] ?? 1);
 $pageNum = intval($_GET['page'] ?? 1);
 
@@ -46,24 +46,44 @@ if ($result) {
             <?php endforeach; ?>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-1"></div>
+            <div class="col-10">
                 <ul class="nav nav-tabs justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/index.php?groups=<?= $groupsId ?>&page=1">1</a>
+                        <a class="nav-link active" href="/index.php?groups=<?= $groupsId ?>&page=1&size=<?=$pageSize?>">1</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=2">2</a>
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=2&size=<?=$pageSize?>">2</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=3">3</a>
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=3&size=<?=$pageSize?>">3</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=4">4</a>
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=4&size=<?=$pageSize?>">4</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=5">5</a>
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=5&size=<?=$pageSize?>">5</a>
                     </li>
                 </ul>
+            </div>
+            <div class="col-1">
+                <form method="get" action="/index.php">
+                    <input type="hidden" name="groups" value="<?= $groupsId ?>">
+                    <input type="hidden" name="page" value="<?= $pageNum ?>">
+                    <select id="selectPageSize" name="size">
+                        <?php foreach([3,6,9] as $s):?>
+                            <?php $selected = ($pageSize == $s)?'selected':'';?>
+                            <option value="<?=$s?>" <?=$selected?> >
+                                <?=$s?>
+                            </option>
+                        <? endforeach;?>
+                        <!--
+                        <option value="3">3</option>
+                        <option value="6" selected>6</option>
+                        <option value="9">9</option>
+                        -->
+                    </select>
+                </form>
             </div>
         </div>
     </div>
