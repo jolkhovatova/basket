@@ -4,10 +4,11 @@
 <?php require_once "./menu-catalog.php"; ?>
 
 <?php
-$query = "SELECT * FROM products";
+$groupsId = $_GET['groups'] ?? 1;
+$query = "SELECT * FROM products WHERE grops_id={$groupsId}";
 $result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
+$catalog = [];
 if ($result) {
-    $catalog = [];
     while ($fields = $result->fetch_assoc()) {
         $objProduct = new Product($fields);
         $catalog[] = $objProduct;
