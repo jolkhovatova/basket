@@ -1,6 +1,7 @@
+
 <section class="info">
-    <div>
-        <ul>
+    <div class="row text-center justify-content-center p-3 mb-2 bg-dark text-white">
+        <ul class="nav flex-column">
             <li><p>г. Киев</p></li>
             <li><p>ул. Архитектора Городецкого, 17/1</p></li>
             <li><p>Часы работы 11:00-20:00</p></li>
@@ -27,6 +28,15 @@
 </template>
 
 <script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<!--
 <script src="js/basket.js"></script>
 <script src="js/page.js"></script>
+-->
 <script src="js/main.js"></script>
+
+
+</body>
+</html>

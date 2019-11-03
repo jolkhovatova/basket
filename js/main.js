@@ -1,11 +1,11 @@
 "use strict";
 
 events(); //назначаются обработчики событий
-BasketObj.load(); //loadLocalStorage - читает из локалСтореч и сохраняет в баскетПродуктс
-PageObj.showProductsInBasket();
+//BasketObj.load(); //loadLocalStorage - читает из локалСтореч и сохраняет в баскетПродуктс
+//PageObj.showProductsInBasket();
 
 function events() {
-
+/*
     // Наводимся на корзину
     $("div.basket").on("mouseenter", function (e) {
         PageObj.basketVisibility(true);
@@ -26,28 +26,6 @@ function events() {
         BasketObj.save();
         PageObj.showProductsInBasket();
     });
-
-    /*
-      document.querySelector("div.catalog").addEventListener(
-          "click",
-          function (e) {
-              let button = e.target; //обытие. таргет - дом елем на который нажали
-              if (button.tagName !== "A" && button.tagName !== "BUTTON") {
-                  return;
-              }
-              if( !(button.tagName === "A" && button.classList.contains("btn-add-basket")) ){
-                  return;
-              }
-              e.preventDefault();
-
-
-              let productDomElement = button.closest("div.product");
-              let productObj = makeProductObj(productDomElement);
-              BasketObj.addProduct(productObj);
-              BasketObj.save();
-              PageObj.showProductsInBasket();
-          }
-      );*/
 
     // Удалить продукт из корзины
     $("div.basket-open").on("click", "td.delete", function (e) {
@@ -79,8 +57,14 @@ function events() {
         productObj.quantity--;
         BasketObj.save();
         PageObj.showProductsInBasket();
-    });
+    });*/
 
+    //
+    $("#selectPageSize").on("change", function (e) {
+        let select = e.target;
+        let form = select.closest("form");
+        form.submit();
+    });
 }
 
 // Делаем обьект продукта
@@ -102,4 +86,5 @@ function makeProductObj(productDomElement) {
         quantity: 1, // колличество товаров
     };
     return productObj;
+
 }
