@@ -4,8 +4,13 @@
 <?php require_once "./menu-catalog.php"; ?>
 
 <?php
-$groupsId = $_GET['groups'] ?? 1;
-$query = "SELECT * FROM products WHERE grops_id={$groupsId}";
+$pageSize = 6;
+$groupsId = intval($_GET['groups'] ?? 1);
+$pageNum = intval($_GET['page'] ?? 1);
+
+$offset = $pageSize * ($pageNum - 1);
+$query = "SELECT * FROM products WHERE groups_id={$groupsId} LIMIT {$offset},{$pageSize}";
+
 $result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
 $catalog = [];
 if ($result) {
@@ -39,6 +44,27 @@ if ($result) {
                     </div>
                 </div>
             <?php endforeach; ?>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.php?groups=<?= $groupsId ?>&page=1">1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=2">2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=3">3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=4">4</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?groups=<?= $groupsId ?>&page=5">5</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
