@@ -1,46 +1,67 @@
+<?php require_once "./init.php"?>
+<?
+$pageTitle = $pageTitle ?? 'Cartier';
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?=$pageTitle?></title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/main2.css"> -->
+</head>
+<body>
 
-<?php require_once "./link-db.php"?>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link d-lg-none active" href="#">Браслеты</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-lg-none" href="#">Кольца</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-lg-none" href="#">Серги</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-lg-none" href="#">Колье</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-lg-none" href="#">Часы</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#">
+                    <img src="img/basket.png" alt="">
+                </a>
+            </li>
+            <?php require_once "./auth.php"; ?>
+        </ul>
+    </div>
+</nav>
 
 <section class="head">
-    <div class="basket">
-        <div class="basket-img">
-            <span class="count">0</span>
-            <img src="img/basket.png" alt="">
-        </div>
-        <div class="basket-open">
-            <table>
-                <tbody></tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row text-center justify-content-center">
-        <div class="col-12">
-            <img src="img/Cartier_logo_mobile.png" alt="" class="rounded-pill shadow p-3 mb-5 bg-white rounded">
-        </div>
-    </div>
-    <div class="p-3 mb-2 bg-dark text-white">
-        <nav>
-            <div>
-                <ul class="nav nav-tabs justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Браслеты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Кольца</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Серги</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Колье</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Часы</a>
-                    </li>
-                </ul>
+    <div class="container-fluid">
+        <div class="row text-center justify-content-center">
+            <div class="col-12">
+                <img src="img/Cartier_logo_mobile.png" alt="" class="rounded-pill shadow p-3 mb-5 bg-white rounded">
             </div>
-        </nav>
+        </div>
     </div>
 </section>
+
 
