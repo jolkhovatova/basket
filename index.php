@@ -1,7 +1,8 @@
-<?php $pageTitle = 'Cartier'; ?>
-
-<?php require_once "./header.php"; ?>
-<?php require_once "./menu-catalog.php"; ?>
+<?php
+$pageTitle = 'Cartier';
+require_once "./header.php";
+require_once "./menu-catalog.php";
+?>
 
 <?php
 $pageSize = intval($_GET['size'] ?? 6);
@@ -14,8 +15,8 @@ $query = "SELECT * FROM products WHERE groups_id={$groupsId} LIMIT {$offset},{$p
 $result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
 $catalog = [];
 if ($result) {
-    while ($fields = $result->fetch_assoc()) {
-        $objProduct = new Product($fields);
+    while ($row = $result->fetch_assoc()) {
+        $objProduct = new Product($row); //row = fields
         $catalog[] = $objProduct;
     }
 }
