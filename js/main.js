@@ -65,8 +65,15 @@ function events() {
         let form = select.closest("form");
         form.submit();
     });
+
+    $("div.rating").on("click", "button", function (e) {
+        let button = e.target;
+        console.log(button);
+    })
+
 }
 
+/*
 // Делаем обьект продукта
 function makeProductObj(productDomElement) {
     let imgProduct = productDomElement.querySelector("img").src;
@@ -88,3 +95,4 @@ function makeProductObj(productDomElement) {
     return productObj;
 
 }
+*/
