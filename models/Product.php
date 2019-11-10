@@ -8,6 +8,7 @@ class Product
     private $price;
     private $groupId;
     private $material;
+    private $id;
 
     function __construct(array $fields)
     {
@@ -17,6 +18,7 @@ class Product
         $this->price = floatval($fields['price']);
         $this->groupId = intval($fields['groups_id']);
         $this->material = $fields['material'];
+        $this->id = intval($fields['id']);
     }
 
     /**
@@ -65,6 +67,14 @@ class Product
     public function getMaterial()
     {
         return $this->material;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
 

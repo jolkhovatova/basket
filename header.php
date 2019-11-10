@@ -9,7 +9,7 @@ $pageTitle = $pageTitle ?? 'Cartier';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?=$pageTitle?></title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="css/main2.css"> -->
+    <link rel="stylesheet" href="css/main2.css">
 </head>
 <body>
 

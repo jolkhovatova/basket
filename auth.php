@@ -5,10 +5,11 @@ if (!$_SESSION['user']) {
     if (array_key_exists("login", $_POST) && array_key_exists("password", $_POST)) {
         $login = trim($_POST['login']);
         $password = trim($_POST['password']);
-        $query = "SELECT login,password FROM users WHERE login='{$login}' and password='{$password}'";
+        $query = "SELECT login,password,id FROM users WHERE login='{$login}' and password='{$password}'";
         $result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
         if ($row = $result->fetch_assoc()) {
             $_SESSION['user'] = $row['login'];
+            $_SESSION['userId'] = intval($row['id']);
         };
     }
 }

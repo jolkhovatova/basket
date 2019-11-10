@@ -39,7 +39,7 @@ if ($result) {
                         </div>
                         <div class="text-secondary"><?= $objProduct->getMaterial() ?></div>
                         <div class="price"><span><?= $objProduct->getPrice() ?></span> грн</div>
-                        <button class="btn-add-basket btn btn-secondary">
+                        <button class="btn btn-add-basket btn-secondary">
                             <a class="btn-add-basket text-white" href="#">В корзину</a>
                         </button>
                     </div>

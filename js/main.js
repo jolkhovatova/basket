@@ -65,8 +65,29 @@ function events() {
         let form = select.closest("form");
         form.submit();
     });
+
+    $("div.rating").on("click", "button", function (e) {
+        let button = e.target;
+        let ratingValue = $(button).data('value');
+        let productId = $(button).closest('div.rating').data('productarticle');
+        console.log(button);
+        $.post(
+            "/ajax.php",
+            {
+                'ratingValue': ratingValue,
+                'productId': productId,
+            },
+            function (response) {
+                let avgRating = response.avgRating;
+                console.log(avgRating);
+                let avgRatingEl = $("div.rating-avg span");
+                avgRatingEl.html(avgRating);
+            }
+        );
+    })
 }
 
+/*
 // Делаем обьект продукта
 function makeProductObj(productDomElement) {
     let imgProduct = productDomElement.querySelector("img").src;
@@ -88,3 +109,4 @@ function makeProductObj(productDomElement) {
     return productObj;
 
 }
+*/
