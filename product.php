@@ -2,7 +2,9 @@
 
 <?php
 $productArticle = $_GET['article'];
+$userId = $_SESSION['userId']??0;
 $product = $productsRepository->getProductByArticle($productArticle);
+$rating = $ratingsRepository->getByUserProduct($userId,$product->getId());
 ?>
 
 <section>
@@ -31,9 +33,10 @@ $product = $productsRepository->getProductByArticle($productArticle);
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="rating">
+                <?php if($userId):?>
+                <div class="rating" data-productarticle="<?= $product->getArticle() ?>" >
                     Ваша оценка:
-                    <?php $youRating = 4; ?>
+                    <?php $youRating = ($rating)?$rating->getValue():0?>
                     <?php for ($i = 1; $i <= 5; $i++): ?>
                         <?php $class = ($youRating >= $i) ? 'class = "star-on"' : ''; ?>
                         <button data-value="<?= $i ?>" <?= $class ?> >
@@ -41,8 +44,9 @@ $product = $productsRepository->getProductByArticle($productArticle);
                         </button>
                     <?php endfor; ?>
                 </div>
+                <?php endif;?>
                 <div class="rating-avg">
-                    Средний рейтинг: <span>4</span>
+                    Средний рейтинг: <span>2</span>
                 </div>
             </div>
         </div>

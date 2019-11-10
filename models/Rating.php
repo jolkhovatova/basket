@@ -9,9 +9,9 @@ class Rating
     function __construct(array $fields)
     {
         $this->id = $fields['id'];
-        $this->productsId = $fields['$productsId'];
-        $this->usersId = $fields['$usersId'];
-        $this->value = intval($fields['$value']);
+        $this->productsId = $fields['products_id'];
+        $this->usersId = $fields['users_id'];
+        $this->value = intval($fields['value']);
 
     }
 
