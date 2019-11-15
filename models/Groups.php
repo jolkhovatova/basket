@@ -6,12 +6,12 @@ class Groups
 
     function __construct(array $fields)
     {
-        $this->id=$fields['id'];
+        $this->id=intval($fields['id']);
         $this->name=$fields['name'];
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
