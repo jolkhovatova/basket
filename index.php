@@ -8,37 +8,26 @@ require_once "./menu-catalog.php";
 $pageSize = intval($_GET['size'] ?? 6);
 $groupsId = intval($_GET['groups'] ?? 1);
 $pageNum = intval($_GET['page'] ?? 1);
-
-$offset = $pageSize * ($pageNum - 1);
-$query = "SELECT * FROM products WHERE groups_id={$groupsId} LIMIT {$offset},{$pageSize}";
-
-$result = mysqli_query($DB, $query) or die("Ошибка " . mysqli_error($DB));
-$catalog = [];
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $objProduct = new Product($row); //row = fields
-        $catalog[] = $objProduct;
-    }
-}
+$catalog = $productsRepository->getByGroupId($groupsId, $pageSize, $pageNum);
 ?>
 
 <section>
     <div class="container">
         <div class="row">
-            <?php foreach ($catalog as $objProduct): ?>
+            <?php foreach ($catalog as $product): ?>
                 <div class="col-xs-12 col-sm-6 col-lg-4 mb-3 mt-3">
-                    <div class="text-center" data-productarticle="<?= $objProduct->getArticle() ?>">
-                        <?php $img = "/img/" . $objProduct->getArticle() . ".png"; ?>
+                    <div class="text-center" data-productarticle="<?= $product->getArticle() ?>">
+                        <?php $img = "/img/" . $product->getArticle() . ".png"; ?>
                         <div><img src="<?= $img ?>"></div>
                         <div class="text-dark">
-                            <a href="/product.php?article=<?= $objProduct->getArticle() ?>"
+                            <a href="/product.php?article=<?= $product->getArticle() ?>"
                                class="text-dark"
                             >
-                                <?= $objProduct->getName() ?><br><?= $objProduct->getModel() ?>
+                                <?= $product->getName() ?><br><?= $product->getModel() ?>
                             </a>
                         </div>
-                        <div class="text-secondary"><?= $objProduct->getMaterial() ?></div>
-                        <div class="price"><span><?= $objProduct->getPrice() ?></span> грн</div>
+                        <div class="text-secondary"><?= $product->getMaterial() ?></div>
+                        <div class="price"><span><?= $product->getPrice() ?></span> грн</div>
                         <button class="btn btn-add-basket btn-secondary">
                             <a class="btn-add-basket text-white" href="#">В корзину</a>
                         </button>
