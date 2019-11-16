@@ -2,6 +2,7 @@
 $pageTitle = 'Cartier';
 require_once "./header.php";
 require_once "./menu-catalog.php";
+require_once "./filter.php";
 ?>
 
 <?php
