@@ -1,15 +1,19 @@
 <?php
 $pageTitle = 'Cartier';
+
+$pageSize = intval($_GET['size'] ?? 6);
+$groupsId = intval($_GET['groups'] ?? 1);
+$pageNum = intval($_GET['page'] ?? 1);
+$productFilter = $_GET['filter']??[];
+
 require_once "./header.php";
 require_once "./menu-catalog.php";
 require_once "./filter.php";
 ?>
 
 <?php
-$pageSize = intval($_GET['size'] ?? 6);
-$groupsId = intval($_GET['groups'] ?? 1);
-$pageNum = intval($_GET['page'] ?? 1);
 $catalog = $productsRepository->getByGroupId($groupsId, $pageSize, $pageNum);
+//$catalog = $productsRepository->getByParams($groupsId, $pageSize, $pageNum, $productFilter);
 ?>
 
 <section>
