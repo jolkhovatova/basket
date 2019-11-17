@@ -7,12 +7,16 @@ $characteristics = $characteristicsRepository->getAll();
         <div class="col-12">
             <form method="get">
                 <?php foreach ($characteristics as $characteristic): ?>
-                    <?php $uniqValues = $prodCharRepository->getUniqByCharacteristicId($characteristic->getId()); ?>
+                    <?php
+                    //достаем масив обьевтов уникальных значений для определенной характер
+                    $uniqValues = $prodCharRepository->getUniqByCharacteristicId($characteristic->getId());
+                    ?>
                     <?= $characteristic->getName() ?>:
                     <select class="mr-5" name="<?= $characteristic->getCode() ?>">
                         <option value="">не выбрано</option>
                         <?php foreach ($uniqValues as $uniqValue): ?>
-                            <option value="<?= $uniqValue->getValue() ?>"><?= $uniqValue->getValue() ?></option>
+                            <?php $selected = ($_GET[$characteristic->getCode()] == $uniqValue->getValue())?'selected':'';?>
+                            <option <?=$selected?> value="<?= $uniqValue->getValue() ?>"><?= $uniqValue->getValue() ?></option>
                         <?php endforeach; ?>
                     </select>
                 <?php endforeach; ?>
@@ -21,3 +25,4 @@ $characteristics = $characteristicsRepository->getAll();
         </div>
     </div>
 </div>
+

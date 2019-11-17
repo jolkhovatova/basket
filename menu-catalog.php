@@ -5,12 +5,11 @@
             <ul class="nav nav-tabs justify-content-center">
                 <?php foreach ($groups as $group): ?>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/index.php?groups=<?=$group->getId()?>"><?=$group->getName()?></a>
+                        <?php $class = ($_GET['groups'] == $group->getId())?'nav-link active':'nav-link';?>
+                        <a class ="<?=$class?>" href="/index.php?groups=<?=$group->getId()?>"><?=$group->getName()?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
 </section>
-
-
